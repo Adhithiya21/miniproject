@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CivicEYE User Profile</title>
+  <link rel="stylesheet" href="{% static 'css/Userprofile.css' %}" />
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+<img src="{% static 'img/Group 7.png' %}" alt="logo" />
+    </div>
+    <form class="profile-form">
+      <div class="form-column">
+        <label>
+          <span>Full Name</span>
+          <input type="text" value="Karthik km" />
+        </label>
+        <label>
+          <span>Mobile Number</span>
+          <input type="text" value="773778025" />
+        </label>
+        <label>
+          <span>Email ID</span>
+          <input type="email" value="karthik@gmail.com" />
+        </label>
+        <label>
+          <span>D.O.B</span>
+          <input type="text" value="01-10-2003" />
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" value="password123" />
+        </label>
+      </div>
+      <div class="form-column">
+        <label>
+          <span>State</span>
+          <select>
+  <option value="">Select State</option>
+  <option>Andhra Pradesh</option>
+  <option>Arunachal Pradesh</option>
+  <option>Assam</option>
+  <option>Bihar</option>
+  <option>Chhattisgarh</option>
+  <option>Goa</option>
+  <option>Gujarat</option>
+  <option>Haryana</option>
+  <option>Himachal Pradesh</option>
+  <option>Jharkhand</option>
+  <option>Karnataka</option>
+  <option>Kerala</option>
+  <option>Madhya Pradesh</option>
+  <option>Maharashtra</option>
+  <option>Manipur</option>
+  <option>Meghalaya</option>
+  <option>Mizoram</option>
+  <option>Nagaland</option>
+    <option>Odisha</option>
+    <option>Punjab</option>
+    <option>Rajasthan</option>
+    <option>Sikkim</option>
+    <option>Tamil Nadu</option>
+    <option>Telangana</option>
+    <option>Tripura</option>
+    <option>Uttar Pradesh</option>
+    <option>Uttarakhand</option>
+    <option>West Bengal</option>
+            </select>
+        </label>
+        <label>
+          <span>Address</span>
+          <textarea rows="3">chimbuveetilmon cheekilode po</textarea>
+        </label>
+        <label>
+          <span>ID Proof</span>
+          <select>
+            <option value="">Select</option>
+          </select>
+        </label>
+        <label>
+          <span>ID Proof Number</span>
+          <input type="text" value="123456789" />
+        </label>
+      </div>
+    </form>
+    <div class="button-group">
+      <button class="edit-btn">EDIT</button>
+      <a href="{% url 'user_home_login' %}"><button class="submit-btn">SUBMIT</button></a>
+    </div>
+  </div>
+</body>
+</html>

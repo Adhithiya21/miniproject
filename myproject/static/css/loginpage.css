@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f7f9fc;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  max-width: 1000px;
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  animation: slideIn 1s ease forwards;
+}
+
+.left-panel,
+.right-panel {
+  flex: 1;
+  padding: 40px;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #e0e0e0;
+  background: #fff;
+  text-align: center;
+  animation: floatInLeft 1s ease forwards;
+}
+
+.left-panel .logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.left-panel h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+  color: #333;
+}
+
+.left-panel p {
+  font-size: 16px;
+  color: #555;
+}
+
+.right-panel h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 26px;
+}
+
+.right-panel .bold {
+  font-weight: bold;
+  color: #000;
+}
+
+.right-panel .highlight {
+  color: #00bfff;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: 0.3s ease;}
+input:focus {
+    border-color: #00bfff;
+    outline: none;
+    box-shadow: 0 0 8px #00bfff33;
+  }
+
+  .forgot {
+    text-align: right;
+    margin-bottom: 20px;
+  }
+
+  .forgot a {
+    color: #00bfff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 12px;
+    background-color: #00bfff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #009edb;
+  }
+
+  .signup-text {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .signup-text a {
+    color: #00bfff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes floatInLeft {
+    from {
+      transform: translateX(-40px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }

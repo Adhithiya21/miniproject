@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CivicEye Login</title>
+  <link rel="stylesheet" href="{% static 'css/loginpage.css' %}">
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <img src="{% static 'img/Group 7.png' %}" alt="CivicEye Logo" class="logo">
+      <h2>Welcome to CivicEye!</h2>
+      <p>Your platform to report, track, and resolve public issues with ease.</p>
+    </div>
+    <div class="right-panel">
+      <h2><span class="bold">SIGN</span><span class="highlight"> IN</span></h2>
+      <form>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <div class="forgot">
+          <a href="#">Forgot Password?</a>
+        </div>
+        <a href="#"><button type="submit">SIGN IN</button></a>
+        <p class="signup-text">Don't Have an Account? <a href="{% url 'sign_up' %}">Sign up</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

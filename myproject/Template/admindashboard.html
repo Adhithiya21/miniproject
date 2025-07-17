@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CivicEYE Dashboard</title>
+  <link rel="stylesheet" href="{% static 'css/adminuserlist.css'%}" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">👁️<span>Civic<span class="highlight">EYE</span></span></div>
+      <nav class="nav">
+        <a href="#" class="nav-link active" data-target="overview">Overview</a>
+        <a href="#" class="nav-link" data-target="complaints">Complaints</a>
+        <a href="#" class="nav-link" data-target="users">User Management</a>
+        <a href="#" class="nav-link" data-target="reports">Reports</a>
+      </nav>
+      <button class="admin-btn">Admin Name</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <section id="overview" class="section active-section">
+        <h2>Overview</h2>
+        <p>This is the overview section.</p>
+      </section>
+      <section id="complaints" class="section">
+  <h2>Complaints</h2>
+  <div class="complaint-controls">
+    <button class="sort-btn">Sort by Date</button>
+    <button class="sort-btn">Sort by Type</button>
+  </div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Location</th>
+          <th>Uploader</th>
+          <th>Type</th>
+          <th>Submissions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>01-01-2012</td>
+          <td>Waste Dumping</td>
+          <td>Kozhikode</td>
+          <td>Milan</td>
+          <td>Waste</td>
+          <td><button class="view-btn">View</button></td>
+        </tr>
+        <tr>
+          <td>01-01-2012</td>
+          <td>Waste Dumping</td>
+          <td>Kozhikode</td>
+          <td>Milan</td>
+          <td>Waste</td>
+          <td><button class="view-btn">View</button></td>
+        </tr>
+        <tr>
+          <td>01-01-2012</td>
+          <td>Waste Dumping</td>
+          <td>Kozhikode</td>
+          <td>Milan</td>
+          <td>Waste</td>
+          <td><button class="view-btn">View</button></td>
+        </tr>
+        <tr>
+          <td>01-01-2012</td>
+          <td>Waste Dumping</td>
+          <td>Kozhikode</td>
+          <td>Milan</td>
+          <td>Waste</td>
+          <td><button class="view-btn">View</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+      <section id="users" class="section">
+        <h2>User Management</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>ID Proof</th>
+                <th>Reports</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Abhishek</td>
+                <td>Abhi@gmail.com</td>
+                <td>8547160387</td>
+                <td>Kakkodi</td>
+                <td>ID.pdf</td>
+                <td>View</td>
+              </tr>
+              <!-- more rows if needed -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section id="reports" class="section">
+        <h2>Reports</h2>
+        <p>This is the reports section.</p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.section');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        // Update active link
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+
+        // Show correct section
+        const target = this.getAttribute('data-target');
+        sections.forEach(section => {
+          section.classList.toggle('active-section', section.id === target);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

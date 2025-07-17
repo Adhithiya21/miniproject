@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CivicEYE</title>
+  <link rel="stylesheet" href="{% static 'css/home_logged_in.css' %}" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="logo">
+      <img src="{% static 'img/Group 7.png' %}" alt="logo" />
+    </div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">My Complaints</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="profile-dropdown">
+      <img src="{% static 'img/usericon.png' %}" alt="User" class="user-icon" />
+      <div class="dropdown-content">
+        <a href="#">👤 Profile</a>
+        <a href="#">⚙ Delete Account</a>
+        <a href="#">↩ Logout</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero-slider">
+  <img src="{% static 'img/wastecivic.jpg' %}" alt="hero" class="hero-img" />
+</section>
+
+<section class="register-complaints">
+  <h2>Register Complaints</h2>
+  <div class="complaint-categories">
+    <div class="category"><i class="fas fa-trash"></i> Waste Dumping</div>
+    <div class="category"><i class="fas fa-exclamation-triangle"></i> Public nuisance</div>
+    <div class="category"><i class="fas fa-traffic-light"></i> Traffic violations</div>
+    <div class="category"><i class="fas fa-file-alt"></i> Others</div>
+  </div>
+</section>
+
+<section class="stats">
+  <h2>Complaint Reports</h2>
+  <div class="stat-cards">
+    <div class="card"><i class="fas fa-clipboard-check"></i><h3>Complaints registered</h3><p>1002</p></div>
+    <div class="card"><i class="fas fa-comment-dots"></i><h3>Reports filed</h3><p>992</p></div>
+    <div class="card"><i class="fas fa-trophy"></i><h3>Rewards distributed</h3><p>886</p></div>
+  </div>
+</section>
+
+<section class="how-it-works">
+  <h2>What we do</h2>
+  <div class="steps">
+    <div class="step">You Register the Complaint</div>
+    <div class="step">Our Team Verifies and shares it to the authorities</div>
+    <div class="step">The authorities process the complaint</div>
+    <div class="step">Your Incentive is provided</div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <h2>What our users have to say</h2>
+  <div class="carousel-container">
+    <button class="nav left" onclick="prevReview()">‹</button>
+    <div class="carousel" id="carousel"></div>
+    <button class="nav right" onclick="nextReview()">›</button>
+  </div>
+
+  <div class="feedback-form">
+    <img src="https://via.placeholder.com/50" alt="user" class="avatar" />
+    <textarea id="feedback-text" placeholder="Write your feedback"></textarea>
+    <input type="text" id="feedback-author" placeholder="Your name" />
+    <button onclick="submitFeedback()">Submit</button>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="contact-box">
+    <h3>📧 Support Mail</h3>
+    <p>support@civiceye.com</p>
+  </div>
+  <div class="contact-box">
+    <h3>📞 Make A Call</h3>
+    <p>+123 456 7890</p>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <h4>Phone Numbers</h4>
+    <p>Military: (123) 456-7890 / 7540</p>
+    <p>State Police: (123) 456-7891</p>
+    <p>Fire Department: (123) 456-7892</p>
+  </div>
+  <div>
+    <h4>Contact Info</h4>
+    <p>Softronics</p>
+    <p>(+12) 34-5678</p>
+    <p>softronics@gmail.com</p>
+  </div>
+  <div>
+    <h4>Quick Links</h4>
+    <a href="#">Home</a><br/>
+    <a href="#">Complaints</a><br/>
+    <a href="#">Register</a><br/>
+    <a href="#">Login</a>
+  </div>
+  <p class="copyright">© CivicEye 2025 | Empowering Citizens, Improving Communities.</p>
+</footer>
+
+<script>
+  const reviews = [
+    { text: "This is awesome website<br><small>Simplifies the complaint registration process</small>", author: "Joimon" },
+    { text: "Very easy to file civic complaints!", author: "Anjali" },
+    { text: "Neat and clean design, intuitive to use!", author: "Rahul" }
+  ];
+
+  let currentIndex = 0;
+
+  function renderCarousel() {
+    const carousel = document.getElementById("carousel");
+    carousel.innerHTML = '';
+    const visible = reviews.slice(currentIndex, currentIndex + 2);
+    visible.forEach(r => {
+      const div = document.createElement("div");
+      div.className = "review-card";
+      div.innerHTML = `<div class="avatar"></div><p>${r.text}</p><strong>${r.author}</strong>`;
+      carousel.appendChild(div);
+    });
+  }
+
+  function nextReview() {
+    if (currentIndex < reviews.length - 2) {
+      currentIndex++;
+      renderCarousel();
+    }
+  }
+
+  function prevReview() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      renderCarousel();
+    }
+  }
+
+  function submitFeedback() {
+    const text = document.getElementById("feedback-text").value;
+    const author = document.getElementById("feedback-author").value;
+    if (text && author) {
+      reviews.push({ text: text + "<br><small>Submitted by user</small>", author });
+      document.getElementById("feedback-text").value = '';
+      document.getElementById("feedback-author").value = '';
+      currentIndex = Math.max(0, reviews.length - 2);
+      renderCarousel();
+    } else {
+      alert("Please fill in both fields.");
+    }
+  }
+
+  renderCarousel();
+</script>
+
+</body>
+</html>

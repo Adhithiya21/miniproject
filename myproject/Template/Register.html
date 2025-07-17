@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CivicEYE Sign Up</title>
+  <link rel="stylesheet" href="{% static 'css/Register.css' %}" />
+ 
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <img src="{% static 'img/Group 7.png' %}" alt="CivicEYE Logo" class="logo" />
+      <h2>Welcome to CivicEYE!</h2>
+      <p>Your platform to report, track, and resolve public issues with ease.</p>
+    </div>
+    <div class="right">
+      <h2><span class="highlight">SIGN</span> UP</h2>
+      <form action="{% url 'sign_up' %}" method="post">
+        {% csrf_token %}
+        
+        <input type="text" placeholder="Full Name" required />
+        <input type="text" placeholder="Mobile Number" required />
+        <input type="date" placeholder="Date of Birth" required />
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <a href="{% url 'sign_up' %}"></a><button type="submit">SIGN UP</button>
+        <p class="signin-link">Already have an account? <a href="{% url 'sign_in' %}">Sign in</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Report Issues Seamlessly</title>
+  <link rel="stylesheet" href="{% static 'css/complaintreg.css'%}" />
+</head>
+<body>
+  <div class="container">
+    <img src="{% static 'img/Group 7.png'%}" alt="logo" class="logo" />
+    <h2>Welcome to CivicEYE!</h2>
+    <h1>Report Issues Seamlessly</h1>
+    <p class="subtitle">
+      Our platform empowers users to submit complaints with ease, offering tools to upload multimedia for
+      comprehensive issue reporting.
+    </p>
+
+    <form class="complaint-form">
+      <label for="description">Description</label>
+      <input type="text" id="description" name="description" placeholder="">
+
+      <label for="complaintType">Complaint type</label>
+      <select id="complaintType" name="complaintType">
+        <option value="">select type</option>
+      </select>
+
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" placeholder="">
+
+      <label for="proof">Proof</label>
+      <button type="button" class="upload-btn">Upload photo or video</button>
+
+      <div class="button-group">
+        <button type="submit" class="submit-btn">Submit</button>
+        <button type="button" class="cancel-btn">Cancel</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
